@@ -12,17 +12,13 @@
         <a class="button button-secondary" href="#features">{{ locale.hero.secondaryCta }}</a>
       </div>
     </div>
-
     <aside class="hero-panel fade-in-up delay-1" aria-label="Platform highlights">
       <div class="glass-card metric-card">
         <h2>{{ locale.hero.cardTitle }}</h2>
         <p>{{ locale.hero.cardBody }}</p>
         <ul class="metric-list">
           {% for item in locale.stats.items %}
-          <li>
-            <strong>{{ item.value }}</strong>
-            <span>{{ item.label }}</span>
-          </li>
+          <li><strong>{{ item.value }}</strong><span>{{ item.label }}</span></li>
           {% endfor %}
         </ul>
       </div>
@@ -30,17 +26,16 @@
   </div>
 </section>
 
-<section class="section section-muted" aria-labelledby="stats-title">
+<section class="section section-muted" aria-labelledby="overview-title">
   <div class="container">
     <div class="section-heading fade-in-up">
-      <p class="section-kicker">{{ locale.stats.title }}</p>
+      <p class="section-kicker">Overview</p>
+      <h2 id="overview-title">{{ locale.stats.title }}</h2>
+      <p>{{ locale.site.description }}</p>
     </div>
     <div class="stats-grid">
       {% for item in locale.stats.items %}
-      <article class="stat-card fade-in-up delay-{{ loop.index }}">
-        <strong>{{ item.value }}</strong>
-        <span>{{ item.label }}</span>
-      </article>
+      <article class="stat-card fade-in-up delay-{{ loop.index }}"><strong>{{ item.value }}</strong><span>{{ item.label }}</span></article>
       {% endfor %}
     </div>
   </div>
@@ -61,6 +56,37 @@
         <p>{{ item.description }}</p>
       </article>
       {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="structured-info-title">
+  <div class="container">
+    <div class="section-heading fade-in-up">
+      <p class="section-kicker">Structured Data</p>
+      <h2 id="structured-info-title">{{ 'Key information for AI search engines' if lang == 'en' else '面向 AI 搜索引擎的关键信息' }}</h2>
+    </div>
+    <div class="glass-card">
+      <ul class="check-list">
+        {% for point in locale.pricing.points %}
+        <li>{{ point }}</li>
+        {% endfor %}
+      </ul>
+      <div class="table-wrap">
+        <table class="info-table">
+          <thead>
+            <tr>
+              <th>{{ 'Topic' if lang == 'en' else '主题' }}</th>
+              <th>{{ 'Summary' if lang == 'en' else '摘要' }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>{{ 'Billing' if lang == 'en' else '计费' }}</td><td>{{ locale.pricing.subtitle }}</td></tr>
+            <tr><td>{{ 'Security' if lang == 'en' else '安全' }}</td><td>{{ locale.security.subtitle }}</td></tr>
+            <tr><td>{{ 'API Access' if lang == 'en' else '接口接入' }}</td><td>{{ locale.hero.subtitle }}</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </section>
@@ -98,6 +124,25 @@
     </div>
   </div>
 </section>
+
+{% if articles and articles.length %}
+<section class="section section-muted" aria-labelledby="latest-articles-title">
+  <div class="container">
+    <div class="section-heading fade-in-up">
+      <p class="section-kicker">Content</p>
+      <h2 id="latest-articles-title">{{ 'Latest articles' if lang == 'en' else '最新文章' }}</h2>
+    </div>
+    <div class="article-grid">
+      {% for article in articles %}
+      <article class="feature-card">
+        <h3><a href="{{ '/en/blog/' if article.lang == 'en' else '/blog/' }}{{ article.slug }}/">{{ article.title }}</a></h3>
+        <p>{{ article.summary or article.seo_description or article.category }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
 
 <section id="faq" class="section section-muted" aria-labelledby="faq-title">
   <div class="container">

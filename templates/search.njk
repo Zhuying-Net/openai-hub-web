@@ -1,0 +1,21 @@
+{% extends "base.njk" %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="section-kicker">Search</p>
+      <h1>{{ 'Search content' if lang == 'en' else '搜索内容' }}</h1>
+      <p>{{ 'Search blog posts and docs in English and Chinese.' if lang == 'en' else '支持中英文博客与文档全文搜索。' }}</p>
+    </div>
+    <div class="glass-card search-panel">
+      <label for="site-search" class="sr-only">Search</label>
+      <input id="site-search" class="search-input" type="search" placeholder="{{ 'Search articles, tags, categories...' if lang == 'en' else '搜索文章、标签、分类...' }}">
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="https://unpkg.com/lunr/lunr.js" defer></script>
+<script src="/assets/js/search.js" defer></script>
+{% endblock %}

@@ -15,6 +15,7 @@ const categoryRoutes = require('./routes/categories');
 const uploadRoutes = require('./routes/upload');
 const settingsRoutes = require('./routes/settings');
 const aiRoutes = require('./routes/ai');
+const sitemapRoutes = require('./routes/sitemap');
 
 initializeDatabase();
 
@@ -41,6 +42,7 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/settings', settingsRoutes);
 app.use('/api/ai', aiRoutes);
+app.use('/sitemap.xml', sitemapRoutes);
 
 app.get('/api/health', (_req, res) => {
   res.json({ ok: true, timestamp: new Date().toISOString() });

@@ -1,0 +1,20 @@
+{% extends "base.njk" %}
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="section-kicker">Docs</p>
+      <h1>{{ 'Documentation library' if lang == 'en' else '文档中心' }}</h1>
+      <p>{{ 'Structured guides and explainers for OpenAI-Hub usage.' if lang == 'en' else 'OpenAI-Hub 使用相关的结构化指南与说明。' }}</p>
+    </div>
+    <div class="article-grid">
+      {% for article in articles %}
+      <article class="feature-card">
+        <h2><a href="{{ '/en/blog/' if article.lang == 'en' else '/blog/' }}{{ article.slug }}/">{{ article.title }}</a></h2>
+        <p>{{ article.summary or article.seo_description or article.category }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,1 @@
+{"index":{"version":"2.3.9","fields":["title","summary","content","category","tags"],"fieldVectors":[],"invertedIndex":[],"pipeline":["stemmer"]},"docs":[]}

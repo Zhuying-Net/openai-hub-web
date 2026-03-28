@@ -3,42 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}{{ locale.site.title }}{% endblock %}</title>
-  <meta name="description" content="{% block description %}{{ locale.site.description }}{% endblock %}">
+  <title>{{ pageTitle or locale.site.title }}</title>
+  <meta name="description" content="{{ pageDescription or locale.site.description }}">
   <meta name="theme-color" content="#0b1020">
-  <meta property="og:title" content="{{ locale.site.title }}">
-  <meta property="og:description" content="{{ locale.site.description }}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.openai-hub.com/">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta property="og:title" content="{{ pageTitle or locale.site.title }}">
+  <meta property="og:description" content="{{ pageDescription or locale.site.description }}">
+  <meta property="og:image" content="{{ ogImage or (siteUrl ~ '/assets/og-default.png') }}">
+  <meta property="og:url" content="{{ canonicalUrl }}">
+  <meta property="og:type" content="{{ ogType or 'website' }}">
   <meta property="og:site_name" content="{{ locale.site.name }}">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://www.openai-hub.com/{{ pagePath | default('') }}">
+  <meta name="twitter:title" content="{{ pageTitle or locale.site.title }}">
+  <meta name="twitter:description" content="{{ pageDescription or locale.site.description }}">
+  <meta name="twitter:image" content="{{ ogImage or (siteUrl ~ '/assets/og-default.png') }}">
+  <link rel="canonical" href="{{ canonicalUrl }}">
+  <link rel="manifest" href="/manifest.json">
+  {% if hreflangs %}
+    {% for item in hreflangs %}
+    <link rel="alternate" hreflang="{{ item.lang }}" href="{{ item.href }}">
+    {% endfor %}
+  {% endif %}
   <link rel="preconnect" href="https://api.openai-hub.com">
   <link rel="stylesheet" href="/assets/css/style.css">
-  {% if altPath %}
-  <link rel="alternate" hreflang="{% if lang == 'zh' %}en{% else %}zh-CN{% endif %}" href="https://www.openai-hub.com/{{ altPath }}">
+  {% if jsonLd %}
+    {% for schema in jsonLd %}
+    <script type="application/ld+json">{{ schema | dump | safe }}</script>
+    {% endfor %}
   {% endif %}
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "OpenAI-Hub",
-      "url": "https://www.openai-hub.com",
-      "sameAs": ["https://api.openai-hub.com"],
-      "description": "{{ locale.site.description }}"
-    }
-  </script>
   <!-- 百度统计代码预留位 -->
   <!-- 在此处插入 Baidu Analytics / 百度统计脚本 -->
   {% block head %}{% endblock %}
 </head>
 <body>
   {% include "partials/header.njk" %}
-
   <main id="main-content">
     {% block content %}{% endblock %}
   </main>
-
   {% include "partials/footer.njk" %}
   <script src="/assets/js/main.js" defer></script>
   {% block scripts %}{% endblock %}

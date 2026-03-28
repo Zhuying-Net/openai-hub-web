@@ -1,0 +1,67 @@
+{% extends "base.njk" %}
+{% block content %}
+<section class="section article-layout">
+  <div class="container article-shell">
+    <div>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ '/en/' if lang == 'en' else '/' }}">{{ 'Home' if lang == 'en' else '首页' }}</a>
+        <span>/</span>
+        <a href="{{ '/en/blog/' if lang == 'en' else '/blog/' }}">{{ 'Blog' if lang == 'en' else '博客' }}</a>
+        <span>/</span>
+        <span>{{ article.title }}</span>
+      </nav>
+      <article class="article-main glass-card">
+        <header class="article-header">
+          <p class="eyebrow">{{ article.category or ('Article' if lang == 'en' else '文章') }}</p>
+          <h1>{{ article.title }}</h1>
+          <p class="hero-subtitle">{{ pageDescription }}</p>
+          <div class="article-meta">
+            <span>{{ article.author or 'OpenAI-Hub' }}</span>
+            <span>{{ article.publish_at or article.updated_at }}</span>
+            <span>{{ readingTime }} {{ 'min read' if lang == 'en' else '分钟阅读' }}</span>
+          </div>
+        </header>
+        <section class="tldr-box">
+          <h2>TL;DR</h2>
+          <p>{{ tldr }}</p>
+        </section>
+        {% if toc and toc.length %}
+        <section class="toc-box">
+          <h2>{{ 'Contents' if lang == 'en' else '目录' }}</h2>
+          <ul>
+            {% for item in toc %}
+            <li class="toc-level-{{ item.level }}"><a href="#{{ item.id }}">{{ item.text }}</a></li>
+            {% endfor %}
+          </ul>
+        </section>
+        {% endif %}
+        <section class="article-body prose">{{ articleHtml | safe }}</section>
+        <section class="source-box">
+          <h2>{{ 'Sources & citations' if lang == 'en' else '来源引用' }}</h2>
+          <blockquote>[Source] {{ article.author or 'OpenAI-Hub' }}. {{ article.title }}. {{ canonicalUrl }}</blockquote>
+        </section>
+        <section class="faq-list">
+          <details class="faq-item" open>
+            <summary>{{ 'What is the main takeaway?' if lang == 'en' else '这篇文章的核心结论是什么？' }}</summary>
+            <p>{{ tldr }}</p>
+          </details>
+          <details class="faq-item">
+            <summary>{{ 'Who is this article for?' if lang == 'en' else '这篇文章适合谁阅读？' }}</summary>
+            <p>{{ 'Developers, AI product teams, and businesses evaluating API gateways.' if lang == 'en' else '适合开发者、AI 产品团队以及评估 API 网关方案的企业。' }}</p>
+          </details>
+        </section>
+      </article>
+    </div>
+    <aside class="article-sidebar">
+      <div class="glass-card">
+        <h2>{{ 'Related articles' if lang == 'en' else '相关文章' }}</h2>
+        <ul class="related-list">
+          {% for item in relatedArticles %}
+          <li><a href="{{ '/en/blog/' if item.lang == 'en' else '/blog/' }}{{ item.slug }}/">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+{% endblock %}
