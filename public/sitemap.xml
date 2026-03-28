@@ -25,4 +25,46 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://www.openai-hub.com/blog/测试slug/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openai-hub.com/blog/5-min-quickstart/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openai-hub.com/en/blog/5-min-quickstart-en/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openai-hub.com/blog/march-2026-update-gpt5/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openai-hub.com/blog/ai-api-gateway-comparison-2026/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openai-hub.com/en/blog/api-gateway-comparison-2026-en/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://www.openai-hub.com/blog/token-cost-optimization/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
 </urlset>

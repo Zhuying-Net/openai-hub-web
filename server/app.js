@@ -21,7 +21,7 @@ initializeDatabase();
 
 const app = express();
 const port = Number(process.env.PORT || 3000);
-const publicDir = path.join(__dirname, 'public');
+const publicDir = path.resolve(__dirname, '..', 'public');
 const adminDir = path.resolve(__dirname, '..', 'admin');
 
 fs.mkdirSync(publicDir, { recursive: true });

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 分钟快速接入 OpenAI-Hub API - 完整教程</title>
+  <meta name="description" content="手把手教你在 5 分钟内完成 OpenAI-Hub API 的注册、配置和首次调用，支持 GPT-4o、Claude 等多模型。">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta property="og:title" content="5 分钟快速接入 OpenAI-Hub API - 完整教程">
+  <meta property="og:description" content="手把手教你在 5 分钟内完成 OpenAI-Hub API 的注册、配置和首次调用，支持 GPT-4o、Claude 等多模型。">
+  <meta property="og:image" content="https://www.openai-hub.com/assets/og-default.png">
+  <meta property="og:url" content="https://www.openai-hub.com/blog/5-min-quickstart/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="OpenAI-Hub">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="5 分钟快速接入 OpenAI-Hub API - 完整教程">
+  <meta name="twitter:description" content="手把手教你在 5 分钟内完成 OpenAI-Hub API 的注册、配置和首次调用，支持 GPT-4o、Claude 等多模型。">
+  <meta name="twitter:image" content="https://www.openai-hub.com/assets/og-default.png">
+  <link rel="canonical" href="https://www.openai-hub.com/blog/5-min-quickstart/">
+  <link rel="manifest" href="/manifest.json">
+  
+  <link rel="preconnect" href="https://api.openai-hub.com">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"5 分钟快速接入 OpenAI-Hub API","description":"手把手教你在 5 分钟内完成 OpenAI-Hub API 的注册、配置和首次调用，支持 GPT-4o、Claude 等多模型。","author":{"@type":"Person","name":"OpenAI-Hub"},"datePublished":"2026-03-25 10:00:00","dateModified":"2026-03-28 13:44:19","publisher":{"@type":"Organization","name":"OpenAI-Hub","url":"https://www.openai-hub.com"},"mainEntityOfPage":"https://www.openai-hub.com/blog/5-min-quickstart/"}</script>
+    
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.openai-hub.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.openai-hub.com/blog/"},{"@type":"ListItem","position":3,"name":"5 分钟快速接入 OpenAI-Hub API","item":"https://www.openai-hub.com/blog/5-min-quickstart/"}]}</script>
+    
+  
+  <!-- 百度统计代码预留位 -->
+  <!-- 在此处插入 Baidu Analytics / 百度统计脚本 -->
+  
+</head>
+<body>
+  <header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="">
+      <span class="brand-mark">OH</span>
+      <span class="brand-text">OpenAI-Hub</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#features">核心优势</a>
+      <a href="#pricing">透明计费</a>
+      <a href="#security">隐私安全</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="lang-switch" href="" hreflang="en">
+        EN
+      </a>
+      <button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+        <span class="theme-toggle-icon">◐</span>
+      </button>
+      <a class="button button-primary button-sm" href="https://api.openai-hub.com" target="_blank" rel="noopener noreferrer">
+        立即接入
+      </a>
+    </div>
+  </div>
+</header>
+
+  <main id="main-content">
+    
+<section class="section article-layout">
+  <div class="container article-shell">
+    <div>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">首页</a>
+        <span>/</span>
+        <a href="/blog/">博客</a>
+        <span>/</span>
+        <span>5 分钟快速接入 OpenAI-Hub API</span>
+      </nav>
+      <article class="article-main glass-card">
+        <header class="article-header">
+          <p class="eyebrow">使用教程</p>
+          <h1>5 分钟快速接入 OpenAI-Hub API</h1>
+          <p class="hero-subtitle">手把手教你在 5 分钟内完成 OpenAI-Hub API 的注册、配置和首次调用，支持 GPT-4o、Claude 等多模型。</p>
+          <div class="article-meta">
+            <span>OpenAI-Hub</span>
+            <span>2026-03-25 10:00:00</span>
+            <span>2 分钟阅读</span>
+          </div>
+        </header>
+        <section class="tldr-box">
+          <h2>TL;DR</h2>
+          <p>手把手教你在 5 分钟内完成 OpenAI-Hub API 的注册、配置和首次调用。</p>
+        </section>
+        
+        <section class="toc-box">
+          <h2>目录</h2>
+          <ul>
+            
+            <li class="toc-level-2"><a href="#section-1">为什么选择 OpenAI-Hub？</a></li>
+            
+            <li class="toc-level-2"><a href="#section-2">第一步：注册账号</a></li>
+            
+            <li class="toc-level-2"><a href="#section-3">第二步：配置 API Key</a></li>
+            
+            <li class="toc-level-2"><a href="#section-4">第三步：发送第一个请求</a></li>
+            
+            <li class="toc-level-2"><a href="#section-5">第四步：查看消费明细</a></li>
+            
+            <li class="toc-level-2"><a href="#section-6">常见问题</a></li>
+            
+          </ul>
+        </section>
+        
+        <section class="article-body prose"><h1>5 分钟快速接入 OpenAI-Hub API</h1>
+<h2 id="section-1">为什么选择 OpenAI-Hub？</h2>
+<p>OpenAI-Hub 是一个稳定、透明的 AI API 聚合平台，无需代理即可直接访问 OpenAI 等多种 AI 模型接口。</p>
+<h2 id="section-2">第一步：注册账号</h2>
+<p>访问 <a href="https://api.openai-hub.com">api.openai-hub.com</a> 注册一个账号，获取你的 API Key。</p>
+<h2 id="section-3">第二步：配置 API Key</h2>
+<p>将你的 API Key 设置为环境变量：</p>
+<pre><code class="language-bash">export OPENAI_API_KEY=&quot;your-api-key&quot;
+export OPENAI_BASE_URL=&quot;https://api.openai-hub.com/v1&quot;
+</code></pre>
+<h2 id="section-4">第三步：发送第一个请求</h2>
+<pre><code class="language-python">from openai import OpenAI
+
+client = OpenAI(
+    api_key=&quot;your-api-key&quot;,
+    base_url=&quot;https://api.openai-hub.com/v1&quot;
+)
+
+response = client.chat.completions.create(
+    model=&quot;gpt-4o&quot;,
+    messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Hello!&quot;}]
+)
+print(response.choices[0].message.content)
+</code></pre>
+<h2 id="section-5">第四步：查看消费明细</h2>
+<p>登录控制台，可以看到每一次 API 调用的详细消费记录，精确到小数点后四位。</p>
+<h2 id="section-6">常见问题</h2>
+<p><strong>Q: 支持哪些模型？</strong>
+A: 支持 GPT-4o、GPT-4、Claude、Gemini 等主流 AI 模型。</p>
+<p><strong>Q: 计费方式是什么？</strong>
+A: 按实际 token 用量计费，与官方价格一致或更低，透明无隐藏费用。</p>
+</section>
+        <section class="source-box">
+          <h2>来源引用</h2>
+          <blockquote>[Source] OpenAI-Hub. 5 分钟快速接入 OpenAI-Hub API. https://www.openai-hub.com/blog/5-min-quickstart/</blockquote>
+        </section>
+        <section class="faq-list">
+          <details class="faq-item" open>
+            <summary>这篇文章的核心结论是什么？</summary>
+            <p>手把手教你在 5 分钟内完成 OpenAI-Hub API 的注册、配置和首次调用。</p>
+          </details>
+          <details class="faq-item">
+            <summary>这篇文章适合谁阅读？</summary>
+            <p>适合开发者、AI 产品团队以及评估 API 网关方案的企业。</p>
+          </details>
+        </section>
+      </article>
+    </div>
+    <aside class="article-sidebar">
+      <div class="glass-card">
+        <h2>相关文章</h2>
+        <ul class="related-list">
+          
+          <li><a href="/blog/测试slug/">测试标题</a></li>
+          
+          <li><a href="/blog/march-2026-update-gpt5/">OpenAI-Hub 2026 年 3 月更新：新增 GPT-5 支持</a></li>
+          
+          <li><a href="/blog/ai-api-gateway-comparison-2026/">2026 年 AI API 网关选型指南：OpenAI-Hub vs 自建方案</a></li>
+          
+          <li><a href="/blog/token-cost-optimization/">AI 应用开发中的 Token 成本优化最佳实践</a></li>
+          
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand brand-footer" href="">
+        <span class="brand-mark">OH</span>
+        <span class="brand-text">OpenAI-Hub</span>
+      </a>
+      <p class="footer-tagline">稳定、透明、可扩展的 AI API 聚合平台</p>
+    </div>
+
+    <div>
+      <h2 class="footer-title">快速链接</h2>
+      <ul class="footer-links">
+        <li><a href="">首页</a></li>
+        <li><a href="#features">核心优势</a></li>
+        <li><a href="#faq">常见问题</a></li>
+        <li><a href="https://api.openai-hub.com" target="_blank" rel="noopener noreferrer">API 控制台</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 OpenAI-Hub. All rights reserved.</p>
+  </div>
+</footer>
+
+  <script src="/assets/js/main.js" defer></script>
+  
+</body>
+</html>
