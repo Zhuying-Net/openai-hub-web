@@ -1,0 +1,118 @@
+{% extends "base.njk" %}
+
+{% block content %}
+<section class="hero section">
+  <div class="container hero-grid">
+    <div class="hero-copy fade-in-up">
+      <p class="eyebrow">{{ locale.hero.eyebrow }}</p>
+      <h1>{{ locale.hero.title }}</h1>
+      <p class="hero-subtitle">{{ locale.hero.subtitle }}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="https://api.openai-hub.com" target="_blank" rel="noopener noreferrer">{{ locale.hero.primaryCta }}</a>
+        <a class="button button-secondary" href="#features">{{ locale.hero.secondaryCta }}</a>
+      </div>
+    </div>
+
+    <aside class="hero-panel fade-in-up delay-1" aria-label="Platform highlights">
+      <div class="glass-card metric-card">
+        <h2>{{ locale.hero.cardTitle }}</h2>
+        <p>{{ locale.hero.cardBody }}</p>
+        <ul class="metric-list">
+          {% for item in locale.stats.items %}
+          <li>
+            <strong>{{ item.value }}</strong>
+            <span>{{ item.label }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section section-muted" aria-labelledby="stats-title">
+  <div class="container">
+    <div class="section-heading fade-in-up">
+      <p class="section-kicker">{{ locale.stats.title }}</p>
+    </div>
+    <div class="stats-grid">
+      {% for item in locale.stats.items %}
+      <article class="stat-card fade-in-up delay-{{ loop.index }}">
+        <strong>{{ item.value }}</strong>
+        <span>{{ item.label }}</span>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="features" class="section" aria-labelledby="features-title">
+  <div class="container">
+    <div class="section-heading fade-in-up">
+      <p class="section-kicker">Platform</p>
+      <h2 id="features-title">{{ locale.features.title }}</h2>
+      <p>{{ locale.features.subtitle }}</p>
+    </div>
+    <div class="feature-grid">
+      {% for item in locale.features.items %}
+      <article class="feature-card fade-in-up delay-{{ loop.index }}">
+        <div class="feature-icon">0{{ loop.index }}</div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="section section-muted" aria-labelledby="pricing-title">
+  <div class="container split-grid">
+    <div class="fade-in-up">
+      <p class="section-kicker">Billing</p>
+      <h2 id="pricing-title">{{ locale.pricing.title }}</h2>
+      <p>{{ locale.pricing.subtitle }}</p>
+    </div>
+    <div class="glass-card fade-in-up delay-1">
+      <ul class="check-list">
+        {% for point in locale.pricing.points %}
+        <li>{{ point }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="security" class="section" aria-labelledby="security-title">
+  <div class="container split-grid reverse">
+    <div class="glass-card fade-in-up delay-1">
+      <ul class="check-list">
+        {% for point in locale.security.points %}
+        <li>{{ point }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="fade-in-up">
+      <p class="section-kicker">Security</p>
+      <h2 id="security-title">{{ locale.security.title }}</h2>
+      <p>{{ locale.security.subtitle }}</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section section-muted" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-heading fade-in-up">
+      <p class="section-kicker">FAQ</p>
+      <h2 id="faq-title">{{ locale.faq.title }}</h2>
+    </div>
+    <div class="faq-list">
+      {% for item in locale.faq.items %}
+      <details class="faq-item fade-in-up delay-{{ loop.index }}">
+        <summary>{{ item.question }}</summary>
+        <p>{{ item.answer }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

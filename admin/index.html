@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAI-Hub CMS</title>
+  <link rel="stylesheet" href="/admin/assets/admin.css" />
+</head>
+<body>
+  <div id="app">
+    <section id="login-view" class="view active">
+      <div class="login-card">
+        <h1>OpenAI-Hub CMS</h1>
+        <p>后台内容管理系统</p>
+        <form id="login-form">
+          <label>用户名<input name="username" value="admin" required /></label>
+          <label>密码<input name="password" type="password" value="admin123456" required /></label>
+          <button type="submit">登录</button>
+        </form>
+        <p id="login-error" class="error"></p>
+      </div>
+    </section>
+
+    <section id="dashboard-view" class="view hidden">
+      <aside class="sidebar">
+        <h2>CMS</h2>
+        <nav>
+          <button data-panel="articles" class="nav-btn active">文章管理</button>
+          <button data-panel="categories" class="nav-btn">分类管理</button>
+          <button data-panel="ai" class="nav-btn">AI 生成</button>
+          <button data-panel="settings" class="nav-btn">系统设置</button>
+        </nav>
+        <button id="logout-btn" class="ghost">退出登录</button>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <h1 id="panel-title">文章管理</h1>
+          <div id="user-info"></div>
+        </header>
+
+        <section id="articles-panel" class="panel active">
+          <div class="toolbar">
+            <select id="filter-status">
+              <option value="">全部状态</option>
+              <option value="draft">草稿</option>
+              <option value="review">待审核</option>
+              <option value="scheduled">定时发布</option>
+              <option value="published">已发布</option>
+            </select>
+            <input id="search-articles" placeholder="搜索标题/摘要/内容" />
+            <button id="refresh-articles">刷新</button>
+            <button id="create-article">新建文章</button>
+          </div>
+
+          <div class="layout-split">
+            <div class="list-card">
+              <table>
+                <thead>
+                  <tr><th>ID</th><th>标题</th><th>状态</th><th>语言</th><th>更新时间</th></tr>
+                </thead>
+                <tbody id="articles-table"></tbody>
+              </table>
+            </div>
+            <div class="editor-card">
+              <form id="article-form">
+                <input type="hidden" name="id" />
+                <div class="grid-2">
+                  <label>标题<input name="title" required /></label>
+                  <label>Slug<input name="slug" /></label>
+                </div>
+                <div class="grid-2">
+                  <label>分类<input name="category" /></label>
+                  <label>标签<input name="tags" placeholder="AI, API, 教程" /></label>
+                </div>
+                <div class="grid-2">
+                  <label>状态
+                    <select name="status">
+                      <option value="draft">草稿</option>
+                      <option value="review">待审核</option>
+                      <option value="scheduled">定时发布</option>
+                      <option value="published">已发布</option>
+                    </select>
+                  </label>
+                  <label>语言
+                    <select name="lang">
+                      <option value="zh">中文</option>
+                      <option value="en">English</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="grid-2">
+                  <label>作者<input name="author" /></label>
+                  <label>封面图<input name="cover_image" placeholder="/uploads/example.png" /></label>
+                </div>
+                <label>定时发布时间<input name="publish_at" type="datetime-local" /></label>
+                <label>摘要<textarea name="summary" rows="3"></textarea></label>
+                <label>Markdown 内容<textarea id="markdown-input" name="content" rows="14" required></textarea></label>
+                <label>SEO 标题<input name="seo_title" /></label>
+                <label>SEO 描述<textarea name="seo_description" rows="2"></textarea></label>
+                <label>SEO 关键词<input name="seo_keywords" /></label>
+                <div class="form-actions">
+                  <button type="submit">保存文章</button>
+                  <button type="button" id="delete-article" class="danger">删除</button>
+                </div>
+              </form>
+              <div class="preview-card">
+                <h3>实时预览</h3>
+                <div id="markdown-preview"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="categories-panel" class="panel hidden">
+          <div class="split-simple">
+            <form id="category-form" class="card">
+              <input type="hidden" name="id" />
+              <h3>分类编辑</h3>
+              <label>名称<input name="name" required /></label>
+              <label>Slug<input name="slug" /></label>
+              <label>描述<textarea name="description" rows="4"></textarea></label>
+              <label>排序<input name="sort_order" type="number" value="0" /></label>
+              <div class="form-actions">
+                <button type="submit">保存分类</button>
+                <button type="button" id="reset-category" class="ghost">清空</button>
+              </div>
+            </form>
+            <div class="card">
+              <h3>分类列表</h3>
+              <ul id="categories-list" class="interactive-list"></ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="ai-panel" class="panel hidden">
+          <form id="ai-form" class="card narrow">
+            <h3>AI 生成文章</h3>
+            <label>主题<input name="topic" required /></label>
+            <label>语言
+              <select name="lang">
+                <option value="zh">中文</option>
+                <option value="en">English</option>
+              </select>
+            </label>
+            <label>风格<input name="style" value="professional" /></label>
+            <label>额外要求<textarea name="requirements" rows="5" placeholder="例如：加入 API 调用示例、SEO 优化建议"></textarea></label>
+            <button type="submit">生成待审核草稿</button>
+            <p id="ai-result" class="hint"></p>
+          </form>
+        </section>
+
+        <section id="settings-panel" class="panel hidden">
+          <form id="settings-form" class="card narrow">
+            <h3>系统设置</h3>
+            <label>站点名称<input name="site_name" /></label>
+            <label>站点描述<textarea name="site_description" rows="3"></textarea></label>
+            <label>站点 URL<input name="site_url" /></label>
+            <label>默认作者<input name="default_author" /></label>
+            <label>每页文章数<input name="posts_per_page" type="number" /></label>
+            <button type="submit">保存设置</button>
+            <p id="settings-result" class="hint"></p>
+          </form>
+        </section>
+      </main>
+    </section>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="/admin/assets/admin.js"></script>
+</body>
+</html>

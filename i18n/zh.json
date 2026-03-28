@@ -1,0 +1,117 @@
+{
+  "site": {
+    "name": "OpenAI-Hub",
+    "title": "OpenAI-Hub - 稳定、透明的 AI API 聚合平台",
+    "description": "无需代理，直接访问 OpenAI 及多种 AI 模型 API。透明计费到小数点后四位，支持高并发、隐私安全与腾讯云 ECDN 加速。",
+    "lang": "zh-CN"
+  },
+  "nav": {
+    "features": "核心优势",
+    "pricing": "透明计费",
+    "security": "隐私安全",
+    "faq": "常见问题",
+    "cta": "立即接入"
+  },
+  "hero": {
+    "eyebrow": "AI API 聚合平台",
+    "title": "无需代理，快速接入 OpenAI 与多模型 API",
+    "subtitle": "OpenAI-Hub 提供稳定、透明、可扩展的 AI API 接入体验。支持高并发调度、腾讯云 ECDN 加速与隐私优先设计，让你的应用更快上线。",
+    "primaryCta": "前往 API 控制台",
+    "secondaryCta": "查看核心优势",
+    "cardTitle": "面向生产环境的 API 基础设施",
+    "cardBody": "统一接入层、账号池、负载均衡、透明扣费与数据不落地设计，帮助团队更轻松地构建 AI 应用。"
+  },
+  "stats": {
+    "title": "为什么开发者选择 OpenAI-Hub",
+    "items": [
+      {
+        "value": "24/7",
+        "label": "稳定可用的 API 接入"
+      },
+      {
+        "value": "0.0001",
+        "label": "透明计费精度"
+      },
+      {
+        "value": "Multi-Model",
+        "label": "多模型统一聚合"
+      }
+    ]
+  },
+  "features": {
+    "title": "核心优势",
+    "subtitle": "为开发者、团队和企业提供现代化的 AI API 接入体验。",
+    "items": [
+      {
+        "title": "无需代理直接访问",
+        "description": "通过 OpenAI-Hub 可直接访问 OpenAI 接口，减少复杂网络配置，加快集成效率。"
+      },
+      {
+        "title": "扣费透明",
+        "description": "支持精细到小数点后四位的费用展示与扣费，清晰掌握每一次调用成本。"
+      },
+      {
+        "title": "接口聚合",
+        "description": "统一接入多种 AI 模型 API，降低多供应商集成与切换的维护成本。"
+      },
+      {
+        "title": "支持高并发",
+        "description": "基于账号池与负载均衡设计，为业务高峰期提供更稳定的吞吐与可用性。"
+      },
+      {
+        "title": "隐私安全",
+        "description": "坚持不保留用户数据，减少敏感信息暴露风险，满足更高的数据安全要求。"
+      },
+      {
+        "title": "ECDN 加速",
+        "description": "结合腾讯云 ECDN 网络能力，优化请求链路与访问速度，提升终端体验。"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "透明计费",
+    "subtitle": "每一次调用都清晰可见，适合精细化运营与企业级成本控制。",
+    "points": [
+      "费用展示精确到小数点后四位",
+      "调用消耗一目了然，便于预算管理",
+      "统一计费视图，减少多平台对账复杂度"
+    ]
+  },
+  "security": {
+    "title": "隐私优先与稳定交付",
+    "subtitle": "从数据处理到网络加速，为生产业务提供更安心的基础能力。",
+    "points": [
+      "默认不保留用户请求与业务数据",
+      "支持高并发场景的调度与稳定性保障",
+      "结合腾讯云 ECDN 提供更快的访问体验"
+    ]
+  },
+  "faq": {
+    "title": "常见问题",
+    "items": [
+      {
+        "question": "OpenAI-Hub 适合什么场景？",
+        "answer": "适合需要快速接入 OpenAI 或多模型 API 的开发者、SaaS 产品、企业内部系统与高并发业务。"
+      },
+      {
+        "question": "为什么强调透明计费？",
+        "answer": "透明计费可以帮助团队准确了解调用成本，优化产品策略，并降低财务核算的不确定性。"
+      },
+      {
+        "question": "平台如何处理数据隐私？",
+        "answer": "平台坚持不保留用户数据，尽量降低敏感信息存储带来的风险。"
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "稳定、透明、可扩展的 AI API 聚合平台",
+    "linksTitle": "快速链接",
+    "links": {
+      "home": "首页",
+      "features": "核心优势",
+      "faq": "常见问题",
+      "api": "API 控制台"
+    },
+    "copyright": "© 2026 OpenAI-Hub. All rights reserved."
+  }
+}

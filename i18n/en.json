@@ -1,0 +1,117 @@
+{
+  "site": {
+    "name": "OpenAI-Hub",
+    "title": "OpenAI-Hub - Reliable and transparent AI API gateway",
+    "description": "Access OpenAI and multiple AI model APIs without a proxy. Transparent billing with 4-decimal precision, high concurrency support, privacy-first design, and Tencent Cloud ECDN acceleration.",
+    "lang": "en"
+  },
+  "nav": {
+    "features": "Features",
+    "pricing": "Billing",
+    "security": "Security",
+    "faq": "FAQ",
+    "cta": "Get Started"
+  },
+  "hero": {
+    "eyebrow": "AI API Aggregation Platform",
+    "title": "Access OpenAI and multi-model APIs without a proxy",
+    "subtitle": "OpenAI-Hub delivers a stable, transparent, and scalable AI API experience. Built for production with high-concurrency routing, Tencent Cloud ECDN acceleration, and privacy-first architecture.",
+    "primaryCta": "Open API Console",
+    "secondaryCta": "Explore features",
+    "cardTitle": "Production-ready API infrastructure",
+    "cardBody": "A unified access layer, account pool, load balancing, transparent billing, and no-data-retention principles for modern AI products."
+  },
+  "stats": {
+    "title": "Why developers choose OpenAI-Hub",
+    "items": [
+      {
+        "value": "24/7",
+        "label": "Stable API availability"
+      },
+      {
+        "value": "0.0001",
+        "label": "Billing precision"
+      },
+      {
+        "value": "Multi-Model",
+        "label": "Unified model aggregation"
+      }
+    ]
+  },
+  "features": {
+    "title": "Core features",
+    "subtitle": "A modern AI API experience for developers, teams, and businesses.",
+    "items": [
+      {
+        "title": "Direct access without a proxy",
+        "description": "Reach OpenAI APIs through OpenAI-Hub directly, reducing network complexity and speeding up integration."
+      },
+      {
+        "title": "Transparent billing",
+        "description": "View and charge usage with precision down to four decimal places so every API call is easy to audit."
+      },
+      {
+        "title": "API aggregation",
+        "description": "Integrate multiple AI model providers through a unified interface and reduce vendor-switching overhead."
+      },
+      {
+        "title": "High concurrency support",
+        "description": "Built with account pools and load balancing to maintain throughput and availability during peak traffic."
+      },
+      {
+        "title": "Privacy and security",
+        "description": "No user data retention by default, helping reduce exposure risks for sensitive business workflows."
+      },
+      {
+        "title": "ECDN acceleration",
+        "description": "Powered by Tencent Cloud ECDN to improve request routing and deliver a faster end-user experience."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Transparent billing",
+    "subtitle": "Every request is measurable and visible, ideal for operational clarity and enterprise cost control.",
+    "points": [
+      "Usage display with four-decimal precision",
+      "Clear call-level cost visibility for budgeting",
+      "Unified billing view to simplify reconciliation"
+    ]
+  },
+  "security": {
+    "title": "Privacy-first and delivery-focused",
+    "subtitle": "From data handling to network acceleration, built to support production workloads with confidence.",
+    "points": [
+      "No retention of user requests or business data by default",
+      "Routing and stability safeguards for high-concurrency traffic",
+      "Faster access with Tencent Cloud ECDN acceleration"
+    ]
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "question": "What use cases is OpenAI-Hub built for?",
+        "answer": "It is suitable for developers, SaaS products, internal enterprise tools, and high-concurrency services that need fast access to OpenAI or multiple AI model APIs."
+      },
+      {
+        "question": "Why emphasize transparent billing?",
+        "answer": "Transparent billing helps teams understand usage costs accurately, optimize product strategy, and reduce reconciliation uncertainty."
+      },
+      {
+        "question": "How is data privacy handled?",
+        "answer": "The platform follows a no-data-retention principle to reduce the risks associated with storing sensitive information."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Reliable, transparent, and scalable AI API aggregation",
+    "linksTitle": "Quick links",
+    "links": {
+      "home": "Home",
+      "features": "Features",
+      "faq": "FAQ",
+      "api": "API Console"
+    },
+    "copyright": "© 2026 OpenAI-Hub. All rights reserved."
+  }
+}
